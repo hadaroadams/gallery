@@ -94,6 +94,10 @@ body .modal .sliderContainer div button {
 body .modal .sliderContainer div button i {
   color: white;
   font-size: 3em;
+  transition: 0.4s;
+}
+body .modal .sliderContainer div button i:hover {
+  color: rgb(117, 194, 227);
 }
 body .modal .sliderContainer div img {
   width: 70%;
@@ -127,4 +131,13 @@ body .modal .downImageContainer .active {
 }
 body .removal {
   display: none;
+  animation: trans 2s;
+}
+@keyframes trans {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }/*# sourceMappingURL=style.css.map */

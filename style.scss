@@ -91,6 +91,10 @@ box-shadow: 10px 10px 70px -11px rgba(0,0,0,0.75);
                     i{
                         color: white;
                         font-size: 3em;
+                        transition: 0.4s;
+                        &:hover{
+                            color:rgb(117, 194, 227);
+                        }
                     }
                 }
                 
@@ -133,5 +137,14 @@ box-shadow: 10px 10px 70px -11px rgba(0,0,0,0.75);
     }
     .removal{
         display: none;
+        animation: trans 2s;
+    }
+    @keyframes trans {
+        from{
+            opacity: 1;
+        }
+        to{
+            opacity:0;
+        }
     }
 }

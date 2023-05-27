@@ -48,11 +48,13 @@ class Gallery{
                     this.show(item.src)
                     this.title.lastElementChild.innerText=index+1
                     this.index
+                    this.counter=index
                     item.classList.toggle('active')
                 }
                 if(parseInt(item.id)<=3){
                     this.show(item.src)
                     this.title.lastElementChild.innerText=index+1
+                    this.counter=index
                      item.classList.toggle('active')
                 }
             }
