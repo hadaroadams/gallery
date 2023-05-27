@@ -9,7 +9,7 @@ class Gallery{
         this.buttons = document.querySelectorAll('button')
         this.sliderImagescontainer = document.querySelector('.downImageContainer')
         this.title = document.querySelector('#title')
-       // this.imagedisplay.draggable= false
+        this.counter = 0
     }
     show(image){
         this.imagedisplay.src=image
@@ -29,10 +29,13 @@ class Gallery{
                 if(parseInt(item.id)>=4){
                     this.title.firstElementChild.innerText="City-"
                     this.title.lastElementChild.innerText=index-2
+                    this.counter = index-3
                 }else{
                    this.title.firstElementChild.innerText="Nature-"
                    this.title.lastElementChild.innerText=index+1
+                   this.counter = index
                 }
+                console.log(this.counter)
             }
         })
         this.btn()
@@ -41,12 +44,10 @@ class Gallery{
     selection(image){
         image.forEach((item,index)=>{
             item.onclick=()=>{
-                console.log('hello')
-            }
-            item.onclick=()=>{
                 if(parseInt(item.id)>=4){
                     this.show(item.src)
                     this.title.lastElementChild.innerText=index+1
+                    this.index
                     item.classList.toggle('active')
                 }
                 if(parseInt(item.id)<=3){
@@ -59,20 +60,35 @@ class Gallery{
     }
     btn(){
         this.buttons.forEach((item)=>{
-            
+            let image , num
             item.onclick=()=>{
+            let sliderImages = this.sliderImagescontainer.children
                 if(item.id=="close"){
                     console.log("hello")
                     this.gallery.classList.remove('removal')
                     this.modal.classList.add('removal')
                 }
                 if(item.id=="next"){
-                    this.counter++
-                    console.log()
+                    if(this.counter >= sliderImages.length-1){
+                        this.counter=-1
+                    }
+                        this.counter++
+                        console.log(this.counter)
+                        image = sliderImages[this.counter].src
+                        this.title.lastElementChild.innerText=this.counter+1
+                        console.log(image)
+                        this.show(image)
+
                 }
                 if(item.id=="prev"){
+                    if(this.counter<=0){
+                        this.counter=sliderImages.length
+                    }
                     this.counter--
-                    console.log(this.counter)
+                    console.log(image)
+                    image = sliderImages[this.counter].src
+                    this.title.lastElementChild.innerText=this.counter+1
+                    this.show(image)
                 }
             }
         })
